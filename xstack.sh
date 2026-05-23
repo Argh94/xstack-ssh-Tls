@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # xStack
-# 2026 – Improved version
+# 2025 – Improved version
+
+if [[ $EUID -ne 0 ]]; then
+    echo -e "\033[1;31m❌ This script must be run as root!\033[0m"
+    echo -e "\033[1;33m   Please run it with: sudo bash $0\033[0m"
+    exit 1
+fi
 
 set -e
 
@@ -33,11 +39,9 @@ echo -e "  \033[1;37m0) Exit\033[0m\n"
 read -p "Your choice (1/2/0): " choice
 
 get_public_ip() {
-    
     curl -s ifconfig.me 2>/dev/null ||
     curl -s icanhazip.com 2>/dev/null ||
     curl -s api.ipify.org 2>/dev/null ||
-    
     hostname -I | awk '{print $1}' 2>/dev/null ||
     echo "YOUR_SERVER_PUBLIC_IP"
 }
@@ -77,7 +81,6 @@ EOF
         echo -e "\033[1;32m→ Enabling & starting services ...\033[0m"
         sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/stunnel4 2>/dev/null || true
 
-        
         systemctl enable ssh >/dev/null 2>&1 || true
         systemctl enable stunnel4 >/dev/null 2>&1 || true
 
