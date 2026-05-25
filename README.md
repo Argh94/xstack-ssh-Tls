@@ -51,6 +51,14 @@ curl -fsSL https://raw.githubusercontent.com/Argh94/xstack-ssh-Tls/refs/heads/ma
 
 ---
 
+## 📸 Screenshots
+
+<div align="center">
+  <img src="https://github.com/Argh94/xstack-ssh-Tls/blob/main/img/IMG_20260525_131919_836.jpg" alt="Chicken Crossy Road Desktop Screenshot" width="320"/>
+  <img src="https://github.com/Argh94/xstack-ssh-Tls/blob/main/img/IMG_20260525_131925_014.jpg" alt="Chicken Crossy Road Mobile Screenshot" width="200"/>
+</div>
+
+---
 ## 📖 How to Use
 
 1. Run the script
